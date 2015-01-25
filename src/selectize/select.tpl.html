@@ -1,6 +1,6 @@
 <div class="ui-select-container selectize-control single" ng-class="{'open': $select.open}">
   <div class="selectize-input"
-       ng-class="{'focus': $select.open, 'disabled': $select.disabled, 'selectize-focus' : $select.focus}"
+       ng-class="{'focus': $select.open, 'disabled': $select.disabled, 'selectize-focus' : $select.focus }"
        ng-click="$select.activate()">
     <div class="ui-select-match"></div>
     <input type="text" autocomplete="off" tabindex="-1"
@@ -8,9 +8,10 @@
            ng-click="$select.toggle($event)"
            placeholder="{{$select.placeholder}}"
            ng-model="$select.search"
-           ng-hide="!$select.searchEnabled || ($select.selected && !$select.open)"
+           ng-hide="($select.selected && !$select.open)"
            ng-disabled="$select.disabled"
-           aria-label="{{ $select.baseTitle }}">
+           aria-label="{{ $select.baseTitle }}"
+           ng-class="{'ui-select-search-disabled' : !$select.searchEnabled}">
   </div>
   <div class="ui-select-choices"></div>
 </div>
